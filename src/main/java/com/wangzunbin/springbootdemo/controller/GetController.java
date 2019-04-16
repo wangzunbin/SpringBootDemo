@@ -39,6 +39,8 @@ public class GetController {
         params.clear();
         params.put("from", from);
         params.put("size", size);
+        System.out.println("大点哈");
+//        System.out.println("测试2");
         return params;
     }
 
