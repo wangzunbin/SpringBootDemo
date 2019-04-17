@@ -1,7 +1,9 @@
 package com.wangzunbin.springbootdemo.utils;
 
+import com.wangzunbin.springbootdemo.bean.MyException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -25,5 +27,13 @@ public class CustomExthandler {
         map.put("msg", e.getMessage());
         map.put("url", request.getRequestURL());
         return map;
+    }
+
+    @ExceptionHandler(value = MyException.class)
+    public Object handleMyException(Exception e){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("error.html");
+        modelAndView.addObject("msg", e.getMessage());
+        return modelAndView;
     }
 }
