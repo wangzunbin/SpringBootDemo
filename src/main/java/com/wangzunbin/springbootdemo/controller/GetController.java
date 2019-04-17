@@ -82,4 +82,11 @@ public class GetController {
         params.put("domain", serverSettings.getDomain());
         return params;
     }
+
+    @GetMapping("/api/get_user")
+    public Object getUser(){
+        params.clear();
+        params.put("username", "adadada");
+        return params;
+    }
 }
