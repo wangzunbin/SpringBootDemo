@@ -3,6 +3,7 @@ package com.wangzunbin.springbootdemo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,6 +13,7 @@ import javax.servlet.MultipartConfigElement;
 
 @RestController
 @SpringBootApplication
+@ServletComponentScan
 public class SpringbootdemoApplication {
 
     @GetMapping("/")
