@@ -1,6 +1,10 @@
 package com.wangzunbin.springbootdemo.controller;
 
+import com.wangzunbin.springbootdemo.bean.ServerSettings;
 import com.wangzunbin.springbootdemo.bean.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -15,7 +19,14 @@ import java.util.Map;
  */
 
 @RestController
+@PropertySource({"classpath:application.yml"})
 public class GetController {
+
+    @Value("${test.name}")
+    private String name;
+
+    @Autowired
+    private ServerSettings serverSettings;
 
     private Map<String, Object> params = new HashMap<>();
 
@@ -40,7 +51,7 @@ public class GetController {
         params.put("from", from);
         params.put("size", size);
         System.out.println("大点哈");
-//        System.out.println("测试2");
+        System.out.println("测试2");
         return params;
     }
 
@@ -54,6 +65,21 @@ public class GetController {
         params.clear();
         params.put("access_token", accessToken);
         params.put("id", id);
+        return params;
+    }
+
+    @GetMapping("/v2/get_name")
+    public Object getName(){
+        params.clear();
+        params.put("name", name);
+        return params;
+    }
+
+    @GetMapping("/v2/get_network")
+    public Object getNetwork(){
+        params.clear();
+        params.put("name", serverSettings.getName());
+        params.put("domain", serverSettings.getDomain());
         return params;
     }
 }

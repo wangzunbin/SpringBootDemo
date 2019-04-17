@@ -1,0 +1,11 @@
+spring:
+  devtools:
+    restart:
+      trigger-file: trigger.txt
+
+test:
+  name: wangzunbin
+
+network:
+  mame: wangzunbin
+  domain: www.baidu.com
