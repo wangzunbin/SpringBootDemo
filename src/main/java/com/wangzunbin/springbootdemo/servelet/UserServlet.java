@@ -1,4 +1,4 @@
-package com.wangzunbin.springbootdemo.controller;
+package com.wangzunbin.springbootdemo.servelet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
